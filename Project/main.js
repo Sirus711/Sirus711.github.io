@@ -1,7 +1,7 @@
 var gameData = {
     // Inventory variables
     ore: 0,
-    steel: 10,
+    steel: 0,
     drones: 0,
     // Cost variables
     orePerClick: 1,
@@ -11,6 +11,20 @@ var gameData = {
   }
 var gameFlags = {
     droneAI: 0
+}
+
+function openMenu(evt, menuName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.className += " active";
 }
 
   function mineOre() {
@@ -45,7 +59,7 @@ var gameFlags = {
 
   // Enables automining and updates status.
   function enableTrafficCon() {
-    //TODO: Add IF statement to unlock.
+    // TODO: Add IF statement to unlock.
     document.getElementById("trafficConStatus").innerHTML = "ONLINE"
     document.getElementById("trafficConStatus").style.color = "green"
     document.getElementById("trafficConBtn").style.display = "none"
