@@ -1,54 +1,41 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Colony Ship v0.0.2</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-
-    <script src="main.js" charset="utf-8"></script>
-
-    <body>
-        <div class="row">
-            <div class="column">
-                <h2>Total Resources</h2>
-                <p id="MineralsMined">0 minerals collected</p>
-                <p id="AlloysRefined">0 alloys refined</p>
-            </div>
-            <div class="column">
-                <h2>Drone Operations</h2>
-                <!--Manual control buttons for drones-->
-                <h3 id="DroneStatus">Drone Status: Docked</h3>
-                <h3 id="DroneCargo">Drone Cargo: None</h3>
-                <button class="ResourceButton" onclick="MineMinerals()">Mine Resources</button>
-
-                <h2>Refinery</h2>
-                <!--Click buttons to make crafting materials from raw materials-->
-                <button class="ResourceButton" onclick="RefineAlloy()">Refine Alloys</button>
-                
-                <h2>Fabricator</h2>
-                <!--Click buttons to make objects from crafting materials-->
-                <p id="DronesTotal" class="ButtonLabel">1 mining drone</p>
-                <button class="ResourceButton" onclick="FabDrone()">Fabricate Drone
-                    <p class="tooltiptext">-10 Alloy, +1 Drone</p>
-                </button>
-                <p id="SolarPanelsTotal" class="ButtonLabel">0 solar panels</p>
-                <button class="ResourceButton" onclick="FabSolarPanel()">Fabricate Solar Panel</button>
-            </div>
-            <div class="column">
-                <h2>Colony Ops</h2>
-                <p>To be added.</p>
-            </div>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Untitled</title>
+  </head>
+  <script src="main.js" charset="utf-8" type="text/javascript"></script>
+  <body>
+    <div class="row">
+        <div class="column side">
+            <h3>Asteroid Mining</h3>
+            <button onclick="mineOre()">Mine Ore</button>
+            <h3>Inventory</h3>
+            <p id="oreMined">0 Ore</p>
+            <p id="oreRefined">0 Steel</p>
+            <p id="miningDrones"></p>
         </div>
-        <div class="row">
-            <div class="column"></div>
-            <div class="column"></div>
-            <div class="column">
-                <p>Colony Ship v0.0.2</p>
-                <p>Created by Jordan Mitchell</p>
-            </div>
+        <div class="column middle">
+            <h2 style="text-align: center;">Bridge</h2>
+            <table>
+                <tr>
+                    <td>Traffic Control Module</td>
+                    <td id="trafficConStatus" style="color:red">OFFLINE</td>
+                </tr>
+                <tr>
+                    <td id=""><button id="trafficConBtn" onclick="enableTrafficCon()">Restore Traffic Control AI</button></td>
+                </tr>
+            </table>
         </div>
-    </body>
+        <div class="column side">
+            <h3>Refinery</h3>
+            <button onclick="refineSteel()">Refine Steel</button>
+            <h3>Fabricator</h3>
+            <button onclick="buildDrone()">Mining Drone</button>
+        </div>
+    </div>
+    <h3 style="text-decoration: overline;">Ship Log</h3>
+    <P id="logMessage"></P>
+  </body>
 </html>

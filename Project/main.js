@@ -1,48 +1,59 @@
 var gameData = {
-    
-    minerals: 0,
-    MineralsPerClick: 1,
-    alloys: 0,
-    AlloysPerClick: 1,
-    
-    Drones: 1,
-    SolarPanels: 0,
-    PowerPerPanel: 1
+    // Inventory variables
+    ore: 0,
+    steel: 10,
+    drones: 0,
+    // Cost variables
+    orePerClick: 1,
+    oreRefine: 10,
+    steelPerRefine: 1,
+    droneCost: 10
+  }
+var gameFlags = {
+    droneAI: 0
+}
+
+  function mineOre() {
+    gameData.ore += gameData.orePerClick
+    document.getElementById("oreMined").innerHTML = gameData.ore + " Ore"
   }
 
-  // Resource Collection
-  function MineMinerals() {
-    gameData.minerals += gameData.MineralsPerClick
-    document.getElementById("MineralsMined").innerHTML = gameData.minerals + " minerals collected"
-  }
-
-  // Refinery
-  function RefineAlloy() {
-    if (gameData.minerals >= 2) {
-      gameData.alloys += gameData.AlloysPerClick
-      gameData.minerals -= 2
-      document.getElementById("AlloysRefined").innerHTML = gameData.alloys + " alloys refined"
-      document.getElementById("MineralsMined").innerHTML = gameData.minerals + " minerals collected"
+  function refineSteel() {
+    if (gameData.ore >= gameData.oreRefine) {
+        gameData.steel += gameData.steelPerRefine
+        gameData.ore -= gameData.oreRefine
+        document.getElementById("logMessage").innerHTML = " "
+    } else {
+        document.getElementById("logMessage").innerHTML = "Refinery: Not enough ore"
     }
-
+        document.getElementById("oreRefined").innerHTML = gameData.steel + " Steel"
+        document.getElementById("oreMined").innerHTML = gameData.ore + " Ore"
   }
 
-  // Fabricator
-  function FabDrone() {
-    if (gameData.alloys >= 10) {
-      gameData.Drones += 1
-      gameData.alloys -= 10
-      document.getElementById("DronesTotal").innerHTML = gameData.Drones + " mining drones"
-      document.getElementById("AlloysRefined").innerHTML = gameData.alloys + " alloys refined"
-      gameData.MineralsPerClick += 1
+  function buildDrone() {
+    if (gameData.steel >= gameData.droneCost) {
+        gameData.drones += 1
+        gameData.orePerClick += 1
+        gameData.steel -= gameData.droneCost
+        document.getElementById("logMessage").innerHTML = " "
+    } else {
+        document.getElementById("logMessage").innerHTML = "Fabricator: Not enough steel"
     }
+        document.getElementById("miningDrones").innerHTML = gameData.steel + " mining drones"
+        document.getElementById("oreRefined").innerHTML = gameData.steel + " Steel"
   }
 
-  function FabSolarPanel() {
-    if (gameData.alloys >= 10) {
-      gameData.SolarPanels += 1
-      gameData.alloys -= 10
-      document.getElementById("SolarPanelsTotal").innerHTML = gameData.SolarPanels + " solar panels"
-      document.getElementById("AlloysRefined").innerHTML = gameData.alloys + " alloys refined"
-    }
+  // Enables automining and updates status.
+  function enableTrafficCon() {
+    //TODO: Add IF statement to unlock.
+    document.getElementById("trafficConStatus").innerHTML = "ONLINE"
+    document.getElementById("trafficConStatus").style.color = "green"
+    document.getElementById("trafficConBtn").style.display = "none"
+    gameFlags.droneAI = 1
   }
+
+  // Loop
+  var mainGameLoop = window.setInterval(function() {
+    if (gameFlags.droneAI == 1)
+    mineOre()
+  }, 1000)
