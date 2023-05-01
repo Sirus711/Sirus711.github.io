@@ -1,5 +1,5 @@
 body {
-    background-color: lightgray;
+  background-color: lightgray;
   }
 
 * {
@@ -20,9 +20,9 @@ body {
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 14px 16px;
+  padding: 15px 15px;
   transition: 0.3s;
-  font-size: 17px;
+  font-size: 16px;
 }
 /* Change background color of buttons on hover */
 .tab button:hover {
@@ -38,19 +38,21 @@ body {
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-top: none;
+  height: 300px;
 }
 
 /* Columns, Wide center and narrow sides */
 .column {
   float: left;
   padding: 10px;
+  height: 400px;
 }
 .middle {
-    width: 50%;
-    background-color: gray;
+  background-color: gray;
+  width: 50%;
 }
 .side {
-    width: 25%;
+  width: 25%;
 }
 /* Clear floats after the columns */
 .row:after {

@@ -9,57 +9,60 @@
   <script src="main.js" charset="utf-8" type="text/javascript"></script>
   <body>
 
-    <!-- Side Column Inventory -->
     <div class="row">
-        <div class="column side">
-            <h3>Asteroid Mining</h3>
-            <button onclick="mineOre()">Mine Ore</button>
-            <h3>Inventory</h3>
-            <p id="oreMined">0 Ore</p>
-            <p id="oreRefined">0 Steel</p>
-            <p id="miningDrones"></p>
-        </div>
+      <!-- Side Column Inventory -->
+      <div class="column side">
+        <h3>Inventory</h3>
+        <p id="oreMined">0 Ore</p>
+        <p id="oreRefined">0 Steel</p>
+        <p id="miningDrones"></p>
+      </div>
 
-        <!-- Center Column Menu -->
-        <div class="column middle">
-            <div class="tab">
-                <button class="tablinks" onclick="openMenu(event, 'Bridge')">Bridge</button>
-                <button class="tablinks" onclick="openMenu(event, 'Menu2')">Menu 2</button>
-                <button class="tablinks" onclick="openMenu(event, 'Menu3')">Menu 3</button>
-            </div>
-            <div id="Bridge" class="tabcontent">
-                <h2 style="text-align: center;">Bridge</h2>
-                <table>
-                    <tr>
-                        <td>Traffic Control Module</td>
-                        <td id="trafficConStatus" style="color:red">OFFLINE</td>
-                    </tr>
-                    <tr>
-                        <td id=""><button id="trafficConBtn" onclick="enableTrafficCon()">Restore Traffic Control AI</button></td>
-                    </tr>
-                </table>
-              </div>
-              <div id="Menu2" class="tabcontent">
-                <h2 style="text-align: center;">Menu 2</h2>
-                <p>Not sure yet.</p> 
-              </div>
-              <div id="Menu3" class="tabcontent">
-                <h2 style="text-align: center;">Menu 3</h2>
-                <p>Not sure yet.</p>
-              </div>
+      <!-- Center Column Menu -->
+      <div class="column middle">
+        <div class="tab">
+          <button class="tablinks" onclick="openMenu(event, 'Bridge')" id="defaultOpen">Bridge</button>
+          <button class="tablinks" onclick="openMenu(event, 'Hangar')">Hangar</button>
+          <button class="tablinks" onclick="openMenu(event, 'Workshop')">Workshop</button>
         </div>
-
-        <!-- Side Column Crafting -->
-        <div class="column side">
-            <h3>Refinery</h3>
-            <button onclick="refineSteel()">Refine Steel</button>
-            <h3>Fabricator</h3>
-            <button onclick="buildDrone()">Mining Drone</button>
+        <div id="Bridge" class="tabcontent">
+          <h2 style="text-align: center;">Bridge</h2>
+          <h3>Asteroid Mining</h3>
+          <button onclick="mineOre()">Mine Ore</button>
         </div>
-
+        <div id="Hangar" class="tabcontent">
+          <h2 style="text-align: center;">Hangar</h2>
+          <table>
+            <tr>
+              <td>Traffic Control Module</td>
+              <td id="trafficConStatus" style="color:red">OFFLINE</td>
+            </tr>
+            <tr>
+              <td id=""><button id="trafficConBtn" onclick="enableTrafficCon()">Traffic Control AI</button></td>
+            </tr>
+          </table> 
+        </div>
+        <div id="Workshop" class="tabcontent">
+          <h2 style="text-align: center;">Workshop</h2>
+          <h3>Refinery</h3>
+          <button onclick="refineSteel()">Refine Steel</button>
+          <h3>Fabricator</h3>
+          <button onclick="buildDrone()">Mining Drone</button>
+        </div>
+      </div>
+      <div class="column side">
+        <P>TBD</P>
+      </div>
     </div>
-    <h3 style="text-decoration: overline;">Ship Log</h3>
-    <P id="logMessage"></P>
+
+    <div class="row">
+      <div class="column side">
+        <h3 style="text-decoration: overline;">Message Log</h3>
+        <P id="logMessage"></P>
+      </div>
+    </div>
+    
+    <script>document.getElementById("defaultOpen").click();</script>
 
   </body>
 </html>

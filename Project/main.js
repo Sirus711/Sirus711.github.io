@@ -13,6 +13,7 @@ var gameFlags = {
     droneAI: 0
 }
 
+// Menu tabs function copied from w3schools
 function openMenu(evt, menuName) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
@@ -38,6 +39,7 @@ function openMenu(evt, menuName) {
         gameData.ore -= gameData.oreRefine
         document.getElementById("logMessage").innerHTML = " "
     } else {
+        document.getElementById("logMessage").style.color = "red"
         document.getElementById("logMessage").innerHTML = "Refinery: Not enough ore"
     }
         document.getElementById("oreRefined").innerHTML = gameData.steel + " Steel"
@@ -51,9 +53,10 @@ function openMenu(evt, menuName) {
         gameData.steel -= gameData.droneCost
         document.getElementById("logMessage").innerHTML = " "
     } else {
+        document.getElementById("logMessage").style.color = "red"
         document.getElementById("logMessage").innerHTML = "Fabricator: Not enough steel"
     }
-        document.getElementById("miningDrones").innerHTML = gameData.steel + " mining drones"
+        document.getElementById("miningDrones").innerHTML = gameData.drones + " mining drones"
         document.getElementById("oreRefined").innerHTML = gameData.steel + " Steel"
   }
 
