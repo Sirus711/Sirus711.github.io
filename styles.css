@@ -1,11 +1,11 @@
 body {
   background-color: lightgray;
-  }
+}
 
+/* Tab Menu */
 * {
   box-sizing: border-box;
 }
-
 /* TODO: Edit tab CSS to be less copied */
 /* Style the tab */
 .tab {
@@ -59,4 +59,8 @@ body {
   content: "";
   display: table;
   clear: both;
+}
+
+p {
+  padding: 0px;
 }

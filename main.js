@@ -40,7 +40,7 @@ function openMenu(evt, menuName) {
         document.getElementById("logMessage").innerHTML = " "
     } else {
         document.getElementById("logMessage").style.color = "red"
-        document.getElementById("logMessage").innerHTML = "Refinery: Not enough ore"
+        document.getElementById("logMessage").innerHTML = "Refinery: Not enough ore!"
     }
         document.getElementById("oreRefined").innerHTML = gameData.steel + " Steel"
         document.getElementById("oreMined").innerHTML = gameData.ore + " Ore"
@@ -54,7 +54,7 @@ function openMenu(evt, menuName) {
         document.getElementById("logMessage").innerHTML = " "
     } else {
         document.getElementById("logMessage").style.color = "red"
-        document.getElementById("logMessage").innerHTML = "Fabricator: Not enough steel"
+        document.getElementById("logMessage").innerHTML = "Fabricator: Not enough steel!"
     }
         document.getElementById("miningDrones").innerHTML = gameData.drones + " mining drones"
         document.getElementById("oreRefined").innerHTML = gameData.steel + " Steel"
@@ -69,7 +69,7 @@ function openMenu(evt, menuName) {
     gameFlags.droneAI = 1
   }
 
-  // Loop
+  // 1 Second Loop
   var mainGameLoop = window.setInterval(function() {
     if (gameFlags.droneAI == 1)
     mineOre()
